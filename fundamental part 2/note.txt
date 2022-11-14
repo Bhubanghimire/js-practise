@@ -1,0 +1,10 @@
+datatype in js: primitive and objects
+
+primitive: 
+number
+string
+boolean
+null
+undefined
+symbol
+BigInt
