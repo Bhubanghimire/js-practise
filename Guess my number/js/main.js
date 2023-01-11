@@ -25,6 +25,7 @@ document.querySelector('.check').addEventListener
       document.querySelector('.message').textContent = "Correct Number!";
       document.querySelector('.highscore').textContent = presentScore;
       document.querySelector('.number').textContent = secretNumber;
+      document.querySelector('body').style.backgroundColor="#60b343"
     }
     else if (secretNumber<guess) {
       if (presentScore>0) {
@@ -56,4 +57,5 @@ document.querySelector('.again').addEventListener
   document.querySelector('.number').textContent = "?";
   document.querySelector('.guess').value = null;
   console.log("you wants to play again");
+  document.querySelector('body').style.backgroundColor="#222"
 })
