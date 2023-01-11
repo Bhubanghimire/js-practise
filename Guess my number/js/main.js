@@ -8,13 +8,14 @@
 // document.querySelector('.guess').value = 11;
 // console.log(document.querySelector('.guess').value);
 
-const secretNumber = Math.trunc(Math.random()*20+1)
+const secretNumber = Math.trunc(Math.random()*20+1);
+let presentScore = 20;
+
 console.log(secretNumber);
 
 document.querySelector('.check').addEventListener
   ('click',function () {
 
-    const presentScore = Number(document.querySelector('.score').textContent);
     const guess = Number(document.querySelector('.guess').value);
 
     if (!guess){
@@ -27,8 +28,9 @@ document.querySelector('.check').addEventListener
     }
     else if (secretNumber<guess) {
       if (presentScore>0) {
+        presentScore--;
         document.querySelector('.message').textContent = "Guess number is too high!";
-        document.querySelector('.score').textContent = presentScore - 1;
+        document.querySelector('.score').textContent = presentScore;
       }
       else {
         document.querySelector('.message').textContent = "loose!";
@@ -36,8 +38,9 @@ document.querySelector('.check').addEventListener
     }
     else if (secretNumber>guess){
       if (presentScore>0){
+        presentScore--
       document.querySelector('.message').textContent = "Guess Number is Too Low!";
-      document.querySelector('.score').textContent = presentScore - 1;
+      document.querySelector('.score').textContent = presentScore;
     }
     else {
         document.querySelector('.message').textContent = "loose!";
@@ -46,3 +49,11 @@ document.querySelector('.check').addEventListener
 
   })
 
+document.querySelector('.again').addEventListener
+("click", function (){
+    document.querySelector('.message').textContent = "Start guessing...";
+  document.querySelector('.score').textContent = 0;
+  document.querySelector('.number').textContent = "?";
+  document.querySelector('.guess').value = null;
+  console.log("you wants to play again");
+})
